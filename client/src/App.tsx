@@ -11,7 +11,7 @@ function App() {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="text-white">Loading...</div>;
   }
 
   const val = getValue(remoteConfig, "new_API_login")
