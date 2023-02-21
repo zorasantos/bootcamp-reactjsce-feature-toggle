@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getValue } from "firebase/remote-config";
 import { fetchRemoteConfig, remoteConfig } from "./services/firebase";
+import { LoginPage } from "./views/login";
 
 
 function App() {
@@ -17,7 +18,9 @@ function App() {
 
   console.log("val", val)
   return (
-    <h1 className="text-3xl font-bold underline">Feature toggle</h1>
+    <div className="flex h-screen justify-center items-center p-5">
+      <LoginPage />
+    </div>
   );
 }
 
