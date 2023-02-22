@@ -1,21 +1,25 @@
 import { useFeature } from "../hooks/useFeature";
+import IconGoogle from "../assets/iconGoogle.svg"
+import IconLinkedin from "../assets/iconLinkedin.svg"
+
 
 export const LoginPage = () => {
 
-  const {  isEnable, setFeature } = useFeature()
-
-  // Precisa usar useEffect?
-  setFeature("new_API_login")
-
-
+  const {  isEnable } = useFeature()
 
   return (
     <div className="flex flex-col gap-5 w-[520px] h-[556px] bg-[#1F2937] rounded-lg p-6">
       <h1 className="text-white text-[1.2rem] font-bold">Welcome back</h1>
-      <div className="flex gap-6">
-        {isEnable && <button className="w-full text-gray-400 border dark:border-gray-600 hover:dark:bg-gray-700 hover:text-white rounded-lg px-7 py-1">Login in with Google</button>}
+      <div className="flex flex-col md:flex-row gap-6">
+        {isEnable("new_API_login") && <button className="w-full flex flex-nowrap items-center justify-center gap-2 text-gray-400 border dark:border-gray-600 hover:dark:bg-gray-700 hover:text-white rounded-lg px-5 py-2">
+          <img src={IconGoogle} alt="Google Icon" />
+          Login with Google
+        </button>}
 
-        <button className="w-full text-gray-400 border dark:border-gray-600 hover:dark:bg-gray-700 hover:text-white rounded-lg px-7 py-1">Login in with Linkedin</button>
+        <button className="w-full flex flex-nowrap items-center justify-center gap-2 text-gray-400 border dark:border-gray-600 hover:dark:bg-gray-700 hover:text-white rounded-lg px-5 py-2">
+          <img src={IconLinkedin} alt="Linkedin Icon" />
+          Login with Linkedin
+        </button>
       </div>
       <div className="relative flex py-5 items-center">
         <div className="flex-grow border-2 dark:border-gray-600" />
