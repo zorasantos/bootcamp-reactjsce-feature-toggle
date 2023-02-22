@@ -7,23 +7,24 @@ type PropsChildren = {
 };
 
 type FeatureToggleContextProps = {
-  setFeature: React.Dispatch<React.SetStateAction<any>>;
-  isEnable: boolean;
+  isEnable: (featureToggle: string) => boolean;
 }
 
 
 export const FeatureToggleContext = createContext({} as FeatureToggleContextProps);
 
 export const FeatureToggleProvider = ({ children }: PropsChildren) => {
-  const [feature, setFeature] = useState("");
   const [loading, setLoading] = useState(true);
-
 
   useEffect(() => {
     fetchRemoteConfig().then(() => setLoading(false));
   }, []);
 
-  const isEnable = getValue(remoteConfig, feature).asBoolean()
+  const isEnable = (featureToggle: string) => {
+    const result = getValue(remoteConfig, featureToggle).asBoolean()
+    return result;
+  }
+
 
   if (loading) {
     return <div className="text-white">Loading...</div>;
@@ -31,7 +32,7 @@ export const FeatureToggleProvider = ({ children }: PropsChildren) => {
 
 
   return (
-    <FeatureToggleContext.Provider  value={{ isEnable, setFeature }}>
+    <FeatureToggleContext.Provider  value={{ isEnable }}>
       {children}
     </FeatureToggleContext.Provider>
   );
