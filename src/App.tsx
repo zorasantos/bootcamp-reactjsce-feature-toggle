@@ -1,9 +1,9 @@
-import { LoginPage } from "./views/login";
+import { RoutesTree } from "./router";
 
 function App() {
   return (
     <div className="flex h-screen justify-center items-center p-5">
-      <LoginPage />
+      <RoutesTree />
     </div>
   );
 }

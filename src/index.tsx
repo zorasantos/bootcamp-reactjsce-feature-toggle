@@ -10,10 +10,9 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-      <FeatureToggleProvider>
-        <App />
-      </FeatureToggleProvider>
-
+    <FeatureToggleProvider>
+      <App />
+    </FeatureToggleProvider>
   </React.StrictMode>
 );
 
