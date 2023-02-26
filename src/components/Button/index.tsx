@@ -6,9 +6,9 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   className?: string;
 };
 
-export const Button: React.FC<ButtonProps> = ({ text, pathIcon, className, ...props }) => {
+export const Button: React.FC<ButtonProps> = ({ text, pathIcon, ...props }) => {
   return (
-    <button className={className} {...props}>
+    <button {...props}>
       {pathIcon && <img src={pathIcon} alt={`Icon button ${text}`} /> }
       <span>{text}</span>
     </button>

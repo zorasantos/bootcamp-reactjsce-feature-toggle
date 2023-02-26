@@ -32,7 +32,9 @@ export const LoginPage = () => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const value = isEnable("path_session_api")
+    // Se isEnable igual a true o endpoint fica https://bootcamp-api.vercel.app/v2/sessions
+    // Se isEnable igual a false o endpoint fica https://bootcamp-api.vercel.app/sessions
+    const value = isEnable("Aqui é passado o nome do parâmetro criado no remote config do firebase")
     const path = value ? "v2/sessions" : "sessions"
 
     const data = await loginUser({ payload: user, path})
@@ -47,8 +49,8 @@ export const LoginPage = () => {
     <div className="flex flex-col gap-5 w-[520px] h-[556px] bg-[#1F2937] rounded-lg p-6">
       <h1 className="text-white text-[1.2rem] font-bold">Welcome back</h1>
       <div className="flex flex-col md:flex-row gap-6">
-
-        {isEnable("new_API_login") &&
+        {/* Se isEnable igual a true exibe o botão */}
+        {isEnable("Aqui é passado o nome do parâmetro criado no remote config do firebase") &&
           <Button
             text="Login with Google"
             pathIcon={IconGoogle}

@@ -1,7 +1,27 @@
-- Install firebase sdk
+# Bootcamp Feature Toggle com remote config do firebase
 
+Subimos o .env com a url de uma api de login com email e senha.
 
-OBS:
- - Firebase Remote Config , um produto que ajuda você a modificar seu aplicativo sem implantar uma nova versão(https://firebase.blog/posts/2018/11/using-cloud-functions-to-update-remote)
+Email e senha pra teste:
 
- https://codeburst.io/firebase-remote-config-for-web-d3d0f6ed7b4
+Email: zora@email.com
+
+Senha: 123456
+
+Casos de uso:
+
+- Simular qual botão de login social estará ativo ou não.
+
+- Simular um problema na nova api de login.
+
+Temos dois endipoints de login:
+
+- https://bootcamp-api.vercel.app/sessions
+
+  Esse endpoint permite fazer o login
+
+- https://bootcamp-api.vercel.app/v2/sessions
+
+  Esse endpoint retorna um erro.
+
+OBS: Qualquer dúvida pode chamar no linkedin.
